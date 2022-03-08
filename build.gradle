@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id "application"
+}
+
+sourceCompatibility = 1.8
+
+group 'com.tw.dojo.bouncingBall'
+version '1.0-SNAPSHOT'
+
+ext {
+    javaMainClass = "com.tw.dojo.bouncingBall.BallApp"
+}
+
+application {
+    mainClassName = javaMainClass
+}
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.2.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    testImplementation group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+}
