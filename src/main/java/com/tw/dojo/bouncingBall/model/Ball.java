@@ -4,10 +4,10 @@ import java.awt.*;
 import java.util.List;
 
 public class Ball {
-    protected static final int DEFAULT_RADIUS = 50;
-    public int x;
-    public int y;
-    public int radius;
+    static final int DEFAULT_RADIUS = 50;
+    private int x;
+    private int y;
+    private int radius;
     private final List<Property> properties;
 
     protected Ball(int x, int y, int radius, List<Property> properties) {
