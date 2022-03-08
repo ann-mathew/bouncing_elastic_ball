@@ -1,21 +1,32 @@
 package com.tw.dojo.bouncingBall.model;
 
 import java.awt.*;
+import java.util.List;
 
-public abstract class Ball {
+public class Ball {
     protected static final int DEFAULT_RADIUS = 50;
-    protected int x;
-    protected int y;
-    protected int radius;
+    public int x;
+    public int y;
+    public int radius;
+    private final List<Property> properties;
 
-    protected Ball(int x, int y, int radius) {
+    protected Ball(int x, int y, int radius, List<Property> properties) {
         this.x = x;
         this.y = y;
         this.radius = radius;
+        this.properties = properties;
     }
 
-    protected Ball(int x, int y) {
-        this(x, y, DEFAULT_RADIUS);
+    public int y() {
+        return this.y;
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 
     // DO NOT CHANGE
@@ -28,5 +39,9 @@ public abstract class Ball {
         return new Point(x, y);
     }
 
-    public abstract void update();
+    public void update() {
+        for (Property property : properties) {
+            property.transform(this);
+        }
+    }
 }
